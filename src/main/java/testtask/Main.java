@@ -13,7 +13,7 @@ public class Main {
 
         //FilesReader fr = new FilesReader(files);
         Configuration c = new Configuration(true, true, "./", "pref_", files);
-        FilesReader fr = new FilesReader(c.getFiles());
+        FilesReader fr = new FilesReader(c);
 
         String str = fr.getNextString();
         while (str != null) {
