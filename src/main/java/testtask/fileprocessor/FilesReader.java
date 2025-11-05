@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import testtask.cliparser.Configuration;
 
 public class FilesReader {
     private int currentIndex = 0;
@@ -14,6 +15,11 @@ public class FilesReader {
 
     public FilesReader(List<String> inputFiles) {
         this.inputFiles = inputFiles;
+        this.openFiles(this.inputFiles);
+    }
+
+    public FilesReader(Configuration conf) {
+        this.inputFiles = conf.getFiles();
         this.openFiles(this.inputFiles);
     }
 
