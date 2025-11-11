@@ -1,8 +1,8 @@
-package testtask.fileprocessor;
+package testtask.sorter;
 
 import java.util.Optional;
 
-public class ParseResult {
+public class SortResult {
     private final Long longValue;
     private final Double doubleValue;
     private final String stringValue;
@@ -10,23 +10,23 @@ public class ParseResult {
 
     public enum ResultType { LONG, DOUBLE, STRING }
 
-    ParseResult(Long longValue, Double doubleValue, String stringValue, ResultType type) {
+    SortResult(Long longValue, Double doubleValue, String stringValue, ResultType type) {
         this.longValue = longValue;
         this.doubleValue = doubleValue;
         this.stringValue = stringValue;
         this.type = type;
     }
 
-    public static ParseResult ofLong(long value) {
-        return new ParseResult(value, null, null, ResultType.LONG);
+    public static SortResult ofLong(long value) {
+        return new SortResult(value, null, null, ResultType.LONG);
     }
 
-    public static ParseResult ofDouble(double value) {
-        return new ParseResult(null, value, null, ResultType.DOUBLE);
+    public static SortResult ofDouble(double value) {
+        return new SortResult(null, value, null, ResultType.DOUBLE);
     }
 
-    public static ParseResult ofString(String value) {
-        return new ParseResult(null, null, value, ResultType.STRING);
+    public static SortResult ofString(String value) {
+        return new SortResult(null, null, value, ResultType.STRING);
     }
 
     public Optional<Long> getLongValue() {
