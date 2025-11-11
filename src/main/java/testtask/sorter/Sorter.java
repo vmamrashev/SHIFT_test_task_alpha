@@ -1,10 +1,7 @@
-package testtask.fileprocessor;
+package testtask.sorter;
 
 import testtask.fileprocessor.FilesReader;
-import testtask.fileprocessor.FilesReader;
-import testtask.fileprocessor.ParseResult;
 import testtask.fileprocessor.DataHandler;
-import java.util.Optional;
 
 public class Sorter {
     FilesReader fr;
@@ -17,26 +14,7 @@ public class Sorter {
         this.fr = fr;
     }
 
-
-
-    public ParseResult sort(String string){
-        try {
-            Long i = Long.parseLong(string);
-            return new ParseResult(i, null, null, ParseResult.ResultType.LONG);
-        }
-        catch (NumberFormatException e){
-            try {
-                Double d = Double.parseDouble(string);
-                return new ParseResult(null, d , null, ParseResult.ResultType.DOUBLE);
-            }
-            catch (NumberFormatException e1){
-                return new ParseResult(null, null , string, ParseResult.ResultType.STRING);
-            }
-        }
-
-    }
-
-    public void sortNDispatchAll(FilesReader fr, DataHandler dh){
+    public void sortAndSendToDispatch(FilesReader fr, DataHandler dh){
         if (fr !=null && dh != null) {
             String currentString = fr.getNextString();
             while (currentString != null) {
@@ -46,10 +24,20 @@ public class Sorter {
         }
     }
 
-
-
-
-
-
+    private SortResult sort(String string){
+        try {
+            Long i = Long.parseLong(string);
+            return new SortResult(i, null, null, SortResult.ResultType.LONG);
+        }
+        catch (NumberFormatException e){
+            try {
+                Double d = Double.parseDouble(string);
+                return new SortResult(null, d , null, SortResult.ResultType.DOUBLE);
+            }
+            catch (NumberFormatException e1){
+                return new SortResult(null, null , string, SortResult.ResultType.STRING);
+            }
+        }
+    }
 }
 
