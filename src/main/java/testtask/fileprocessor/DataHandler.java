@@ -18,11 +18,9 @@ public class DataHandler {
         this.isAppend = cfg.isAppend();
         this.outputPath = cfg.getOutputPath();
         this.outputFilenamesPrefix = cfg.getOutputFilenamesPrefix();
-
     }
 
-
-    public void hanlde(SortResult pr){
+    public void hanlde(SortResult value){
 
     }
 }
