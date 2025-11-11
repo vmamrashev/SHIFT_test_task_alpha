@@ -1,27 +1,11 @@
 package testtask.statscollector;
+import testtask.sorter.SortResult;
 
-public abstract class StatsCollector {
-    protected int count = 0;
-    protected boolean needFullStats = false;
-    protected String stats;
 
-    public StatsCollector(){
-        this.needFullStats = false;
-        this.count = 0;
-        this.stats = "";
-    }
+public interface  StatsCollector {
 
-    public StatsCollector(boolean needFullStats){
-        this.needFullStats = needFullStats;
-        this.count = 0;
-        this.stats = "";
-    }
 
-    public void setKindOfStats(boolean needFullStats){
-        this.needFullStats = needFullStats;
-    }
+    public void addValue(SortResult value);
 
-    public int getCount(){
-        return count;
-    }
+    public String getStats();
 }
