@@ -20,7 +20,7 @@ public class DataHandler {
         this.outputFilenamesPrefix = cfg.getOutputFilenamesPrefix();
     }
 
-    public void hanlde(SortResult value){
+    public void handle(SortResult value){
 
     }
 }

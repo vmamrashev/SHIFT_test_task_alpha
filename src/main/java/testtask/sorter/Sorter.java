@@ -18,7 +18,7 @@ public class Sorter {
         if (fr !=null && dh != null) {
             String currentString = fr.getNextString();
             while (currentString != null) {
-                dh.hanlde(this.sort(currentString));
+                dh.handle(this.sort(currentString));
                 currentString = fr.getNextString();
             }
         }
