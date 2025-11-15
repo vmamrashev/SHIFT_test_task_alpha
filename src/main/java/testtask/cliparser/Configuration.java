@@ -23,7 +23,7 @@ public class Configuration {
         this.isFullStats = isFullStats;
         this.isAppend = isAppend;
         this.outputPath = outputPath;
-        this.outputFilenamesPrefix = "";
+        this.outputFilenamesPrefix = outputFilenamesPrefix;
         this.files = files;
     }
 
