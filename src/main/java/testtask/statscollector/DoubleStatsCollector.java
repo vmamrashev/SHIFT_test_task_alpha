@@ -6,7 +6,7 @@ public class DoubleStatsCollector implements StatsCollector{
     private double max = Double.NEGATIVE_INFINITY;
     private double min = Double.POSITIVE_INFINITY;
     private double sum = 0;
-    private static int count;
+    private int count;
     private  boolean isFullStats;
 
     public void addValue(SortResult value){
