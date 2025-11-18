@@ -13,6 +13,7 @@ public class IntsFileWriter implements FilesWriter{
     private  boolean isAppend;
     private  String outputPath;
     private  String outputFilenamesPrefix;
+    private FileWriter intsWriter;
     Configuration cfg;
 
     public IntsFileWriter(Configuration cfg){
@@ -25,10 +26,21 @@ public class IntsFileWriter implements FilesWriter{
         this.isAppend = isAppend;
         this.outputPath = outputPath;
         this.outputFilenamesPrefix = outputFilenamesPrefix;
+        try {
+            this.intsWriter = new FileWriter(intsOutputFileName,  isAppend){
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void writeToFile(SortResult value){
-        FileWriter intsWriter = new FileWriter(intsOutputFileName,  isAppend);
+        try {
+            intsWriter.write(Math.toIntExact(value.getLongValue().orElse(0L)));
+        }
+        catch (IOException ioe){
+            System.out.println("Unable to write to "+ intsOutputFileName + " file");
+        }
 
     }
 
