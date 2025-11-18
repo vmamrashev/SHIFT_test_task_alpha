@@ -1,15 +1,8 @@
 package testtask.fileprocessor;
 import testtask.cliparser.Configuration;
+import testtask.sorter.SortResult;
 
-public class FilesWriter {
-    private String intsOutputFileName;
-    private String floatsOutputFileName;
-    private String stringsOutputFileName;
-    Configuration cfg;
+public interface FilesWriter {
 
-    public FilesWriter(Configuration cfg){
-        this.cfg = cfg;
-    }
-
-
+    public void writeToFile(SortResult value);
 }
