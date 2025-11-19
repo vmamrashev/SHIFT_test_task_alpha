@@ -12,10 +12,12 @@ public class DataHandler {
     private String outputPath;
     private String outputFilenamesPrefix;
     private StatsCollectorFactory scf;
+    private WriterFactory wf;
     Configuration cfg;
 
-    public DataHandler(Configuration cfg, StatsCollectorFactory scf){
+    public DataHandler(Configuration cfg, StatsCollectorFactory scf, WriterFactory wf){
         this.cfg = cfg;
+        this.wf = wf;
         this.scf = scf;
         this.isFullStats = cfg.isFullStats();
         this.isAppend = cfg.isAppend();
@@ -25,5 +27,6 @@ public class DataHandler {
 
     public void handle(SortResult value){
         scf.getCollector(value.getType()).addValue(value);
+        wf.getWriter(value.getType()).writeToFile(value);
     }
 }
