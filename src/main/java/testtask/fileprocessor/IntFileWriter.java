@@ -1,28 +1,30 @@
+// ToDo
+// Переделать FileWriter на BufferedFileWriter
+// Обработка исключений
 package testtask.fileprocessor;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import testtask.cliparser.Configuration;
 import testtask.sorter.SortResult;
-// ToDo
-// Обработка исключений
+
 
 public class IntFileWriter implements FilesWriter{
 
     private String intOutputFileName;
-    private  boolean isAppend;
-    private  String outputPath;
-    private  String outputFilenamesPrefix;
+    private boolean isAppend;
+    private String outputPath;
+    private String outputFilenamesPrefix;
     private FileWriter intWriter;
-    Configuration cfg;
+    private Configuration cfg;
 
     public IntFileWriter(Configuration cfg){
         this.cfg = cfg;
     }
 
-    public IntFileWriter(String intOutputFileName, boolean isAppend,
-                         String outputPath, String outputFilenamesPrefix){
-        this.intOutputFileName = intOutputFileName;
+    public IntFileWriter(boolean isAppend, String outputPath,
+                          String outputFilenamesPrefix){
+        this.intOutputFileName = outputPath + "//" + outputFilenamesPrefix + "integers.txt";
         this.isAppend = isAppend;
         this.outputPath = outputPath;
         this.outputFilenamesPrefix = outputFilenamesPrefix;

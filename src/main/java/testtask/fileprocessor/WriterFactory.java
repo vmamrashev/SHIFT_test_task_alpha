@@ -31,11 +31,11 @@ public class WriterFactory {
 
     private FilesWriter createWriter(SortResult.ResultType type) {
         if (type == SortResult.ResultType.LONG) {
-            return new IntFileWriter(intOutputFileName, isAppend, outputPath, outputFilenamesPrefix);
+            return new IntFileWriter(isAppend, outputPath, outputFilenamesPrefix);
         } else if (type == SortResult.ResultType.DOUBLE) {
-            return new DoubleFileWriter();
+            return new DoubleFileWriter(isAppend, outputPath, outputFilenamesPrefix);
         } else if (type == SortResult.ResultType.STRING) {
-            return new StringFileWriter();
+            return new StringFileWriter(isAppend, outputPath, outputFilenamesPrefix);
         }
         throw new IllegalArgumentException("Unsupported data type: " + type);
     }
