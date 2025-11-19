@@ -1,6 +1,8 @@
 package testtask.statscollector;
 import testtask.sorter.SortResult;
 import java.util.*;
+// ToDo
+// Учесть необходимость сбора краткой и полной статистики
 
 public class StatsCollectorFactory {
     private Map<SortResult.ResultType, StatsCollector> collectors = new HashMap<>();

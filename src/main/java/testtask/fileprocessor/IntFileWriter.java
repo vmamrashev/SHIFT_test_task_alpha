@@ -27,11 +27,12 @@ public class IntsFileWriter implements FilesWriter{
         this.outputPath = outputPath;
         this.outputFilenamesPrefix = outputFilenamesPrefix;
         try {
-            this.intsWriter = new FileWriter(intsOutputFileName,  isAppend){
-            }
+            this.intsWriter = new FileWriter(intsOutputFileName, isAppend);
         } catch (IOException e) {
+            System.err.println("Unable to write to "+ intsOutputFileName + " file");
             e.printStackTrace();
-        }
+        } 
+        
     }
 
     public void writeToFile(SortResult value){
@@ -41,7 +42,6 @@ public class IntsFileWriter implements FilesWriter{
         catch (IOException ioe){
             System.out.println("Unable to write to "+ intsOutputFileName + " file");
         }
-
     }
 
 }
