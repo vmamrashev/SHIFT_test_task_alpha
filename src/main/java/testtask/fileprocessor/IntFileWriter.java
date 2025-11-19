@@ -1,35 +1,35 @@
 package testtask.fileprocessor;
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import testtask.cliparser.Configuration;
 import testtask.sorter.SortResult;
+// ToDo
+// Обработка исключений
 
+public class IntFileWriter implements FilesWriter{
 
-public class IntsFileWriter implements FilesWriter{
-
-    private String intsOutputFileName;
+    private String intOutputFileName;
     private  boolean isAppend;
     private  String outputPath;
     private  String outputFilenamesPrefix;
-    private FileWriter intsWriter;
+    private FileWriter intWriter;
     Configuration cfg;
 
-    public IntsFileWriter(Configuration cfg){
+    public IntFileWriter(Configuration cfg){
         this.cfg = cfg;
     }
 
-    public IntsFileWriter(String intsOutputFileName, boolean isAppend,
-                            String outputPath, String outputFilenamesPrefix){
-        this.intsOutputFileName = intsOutputFileName;
+    public IntFileWriter(String intOutputFileName, boolean isAppend,
+                         String outputPath, String outputFilenamesPrefix){
+        this.intOutputFileName = intOutputFileName;
         this.isAppend = isAppend;
         this.outputPath = outputPath;
         this.outputFilenamesPrefix = outputFilenamesPrefix;
         try {
-            this.intsWriter = new FileWriter(intsOutputFileName, isAppend);
+            this.intWriter = new FileWriter(intOutputFileName, isAppend);
         } catch (IOException e) {
-            System.err.println("Unable to write to "+ intsOutputFileName + " file");
+            System.err.println("Unable to write to "+ intOutputFileName + " file");
             e.printStackTrace();
         } 
         
@@ -37,13 +37,12 @@ public class IntsFileWriter implements FilesWriter{
 
     public void writeToFile(SortResult value){
         try {
-            intsWriter.write(Math.toIntExact(value.getLongValue().orElse(0L)));
+            intWriter.write(Math.toIntExact(value.getLongValue().orElse(0L)));
         }
         catch (IOException ioe){
-            System.out.println("Unable to write to "+ intsOutputFileName + " file");
+            System.out.println("Unable to write to "+ intOutputFileName + " file");
         }
     }
-
 }
 
 
